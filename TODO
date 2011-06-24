@@ -1,0 +1,5 @@
+//the client under progress so todo's here
+1.when server violating the rule,instead of keep sending empty bodies and waiting for expected behaviour forever,(after a fixed number of waiting, u shd terminate the session) [never observed such behaviour]
+2.keeping session establishment seperate i.e. analysis starts after all the sessions are established[not a big issue i suppose,so not doing that for the timebeing]
+3.check if a lot of spare sockets open to the server change somethings at all??[check from two systems]
+

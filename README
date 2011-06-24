@@ -1,1 +1,4 @@
-this a bosh stress testing and latency estimating commandline tool
+this a bosh stress testing and latency estimation commandline tool written with nodejs
+will also write package.json for dependencies
+also one install.txt if u say so
+wait for a while for instructions to use it :-)
