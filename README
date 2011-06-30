@@ -1,4 +1,102 @@
-this a bosh stress testing and latency estimation commandline tool written with nodejs
-will also write package.json for dependencies
-also one install.txt if u say so
-wait for a while for instructions to use it :-)
++------------------------------------------------------------------------------+
+| An XMPP BOSH server stress tool written using Node.js in Javascript |
++------------------------------------------------------------------------------+
+
+Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
+
+
+[A] 	Introduction: It is a tool to stress test a bosh server on one hand 
+	while on the other it can be used to just find latency in service at 
+	a desired remote location.First of all it tries to authenticate 
+	multiple clients simultaneously with the xmpp server each going 
+	through following steps:
+		a: bosh session creation
+		b: SASL authentication using PLAIN mechanism
+		c: stream restart
+		d: resource binding
+		e: session binding
+	After successful completion of above steps user gets online(has an 
+	established session with corresponding xmpp server).Now it can be 
+	used in two different modes(1.Bombarding mode 2.normal mode).In 
+	bombarding mode each of the above clients start sending sample 
+	messages to themselves via bosh.As soon as they receive previously 
+	sent message,they send another self-destined message.All the clients 
+	keep doing this for a predefined time simultaneously and the response 
+	times are recorded for analysis.In normal mode each of the above 
+	established clients send messages to themselves in a longer interval
+	(say every 30 seconds).So now instead of bombarding the server we can 
+	find the average response time a normal user expects.
+
+
+[B] 	Loglevels(in order):
+		FATAL:	not used
+		ERROR:	displays error messages
+		DATA:	displays statistics
+		INFO:	informs about important events
+		DEBUG:	prints each packet sent and received
+
+
+[C]	Statistics interpretation:[each of the following is recorded since 
+	the last statistics printed]
+		total:			total no. of http responses received by application
+		nEstablished:		total number of established clients
+		meanTL:			mean timelag over all the received messages
+		maxTL:			max timelag over all the received messages
+		sentperclient:		number of messages sent per client on average
+		receivedperclient:	number of messages received per client on average
+		Error%:			percentage of messages received with timelag greater 
+						than a predefined threshold time 
+
+
+[D] Command line options interpretation:
+	
+	Usage:
+
+	The BOSH service endpoint (default: http://localhost:5280/http-bind/)
+	    --endpoint
+	The route attribute to use for connection with xmpp(default: <empty>)
+	    --route
+	The number of sessions(clients) to open (default: 1)
+	    --nsess
+	The Loglevel you want (default: INFO)
+	    --logging
+	which clients you want to create(default: 1)
+	    --start
+	Upper limit of acceptable response time(time lag) in seconds(default: 7)
+	    --timeout
+	mode in which clients operate (1.Bombarding 2.Normal mode)(default: 1)
+	    --mode
+	interval in seconds between two consecutive messages in normal mode(default: 5)
+	    --interval
+	statistics logging interval in seconds(default: 60)
+	    --datainterval
+	terminate the program after this time in minutes(default: 20)
+	    --terminate
+	Help. This message.
+	    --help
+
+
+[E] Quick Start:
+
+    [1] To run, type:
+    $ node <path-to-project>/boshclient.js <requisite arguments>
+
+    [2] For options, type:
+    $ node <path-to-project>/boshclient.js --help
+
+    [3] For a more complex setup, see the file boshclient.js[function main() in particular]
+
+[F] Directions: 
+	[1]:	while creating a number of clients it may be convenient to use the usernames like 
+		(user1@example.com,user2@example.com,user3@example.com etc.) having same or 
+		logically related passwords(you know what i mean by logically related :P).you can 
+		set the credentials to login in file boshclient.js(function start_test() in particular).
+	[2]:	if you want to run multiple instances of this program each logging in a different set 
+		of users, you can use 'start' attribute in the command line to set that(program will 
+		login user<start>@example.com to user<start+nsess-1>@example.com users by default).
+	[3]:	your xmpp server or bosh server might be configured to avoid being bombarded by any 
+		client beyond a threshold no. of messages per unit time.So keep the configuration as 
+		required while using the program in the bombarding mode.
+
+
+*******************************************HAPPY CODING and HAPPY NODING****************************************************

@@ -2,7 +2,7 @@ var http=require("http");
 var url=require("url");
 var ltx=require("ltx");
 var util=require("util");
-var autil=require("./autil.js");	//my utilities
+var autil=require("./autil.js");		//my utilities
 
 var NS_CLIENT="jabber:client";
 var NS_XMPP_SASL="urn:ietf:params:xml:ns:xmpp-sasl";
@@ -18,7 +18,7 @@ instead of allocating a new one for each client especially when u r
 provided enough resources and no of allocated sockets are too high)...
 */
 
-var STATE_FIRST=0,
+var  STATE_FIRST=0,
 	STATE_PREAUTH=1,
 	STATE_AUTH=2,
 	STATE_AUTHED=3,
@@ -31,19 +31,19 @@ var STATE_FIRST=0,
 function screquest(host,port,username,domain,resource,password,route)
 {
 	this.sess_attr={
-		rid:5292811,
+		rid:5292811,		//any random rid
 		jid:{
 			username:username,
 			domain:domain,
-			resource:resource+autil.randomstring(),	//to avoid resource-conflict as much a possible
+			resource:resource+autil.randomstring(),			//to avoid resource-conflict as much a possible
 			toString:function(){
 				return this.username+"@"+this.domain+"/"+this.resource;
 			}
 		},
 		password:password
 	};
-	this.mcount=0;	//message count for the time being
-	this.chold=0;
+	this.mcount=0;		//message count for the time being
+	this.chold=0;		//no. of requests held by bosh-server
 	this.state=STATE_FIRST;
 	this.options={
 		host : host,
@@ -87,18 +87,22 @@ function screquest(host,port,username,domain,resource,password,route)
 	var body=new ltx.Element('body',attr);
 	this.sendhttp(body.toString());
 	
-	//*********************other member functions**************************clean above it
+	//*********************other member functions**************************
 	this.handle=function(err,response)
 	{
 		++total;
 		this.t2=new Date().getTime();
 		this.chold--;
+		
+		// some error in sending or recieving http request
 		if(err)
 		{
 			autil.logit("ERROR",this.sess_attr.jid+"no response "+response);
 			return;
 		}
-		try		//ltx.parse() throws exceptions if unable to parse
+		
+		// ltx.parse() throws exceptions if unable to parse
+		try
 		{
 			var body=ltx.parse(response);
 		}
@@ -108,13 +112,14 @@ function screquest(host,port,username,domain,resource,password,route)
 			return;
 		}
 		
-		// checking stream error
+		// check for stream error
 		var serror;
 		if(serror=body.getChild("error",NS_STREAM))
 		{
 			autil.log("ERROR","stream Error: "+serror);
-			//No need to terminate as stream already closed by xmppserver and hence bosh-server
-			state=STATE_TERM;	//to inform other methods not to send messages any more
+			/* 	No need to terminate as stream already closed by xmppserver and hence bosh-server
+				but to inform other asynch methods not to send messages any more	*/
+			state=STATE_TERM;
 			return;
 		}
 
@@ -123,9 +128,10 @@ function screquest(host,port,username,domain,resource,password,route)
 		{
 			if(this.state!=STATE_TERM)
 			{
-				autil.logit("INFO"+"Session terminated By the Server!!!"+body);				
+				autil.logit("INFO","Session terminated By the Server!!!"+body);
+				this.state=STATE_TERM;
+				return;
 			}
-			return;
 		}
 
 		if(this.state==STATE_FIRST)
@@ -166,7 +172,7 @@ function screquest(host,port,username,domain,resource,password,route)
 			}
 			else
 			{
-				this.sendxml();				//sending empty request
+				this.sendxml();			//sending empty request
 			}
 			return;
 		}
@@ -228,7 +234,7 @@ function screquest(host,port,username,domain,resource,password,route)
 				}
 				else
 				{
-					//stanza error to be handled properly
+					// stanza error to be handled properly
 					this.perror("iq stanza error resource binding: "+ iq);
 				}
 			}
@@ -278,9 +284,12 @@ function screquest(host,port,username,domain,resource,password,route)
 		if(opmode==2) 		//normal latencyfinding mode
 		{
 			var that=this;
-			setInterval(function(){
-				//what if previously sent message hasn't yet recieved back ???
-				that.keepsending();
+			var si=setInterval(function(){
+				//what if previously sent message hasn't yet received back ???
+				if(that.state!=STATE_TERM)
+					that.keepsending();
+				else
+					clearInterval(si);
 			},ninterval*1000);
 		}
 		this.state=STATE_ONLINE;
@@ -302,7 +311,7 @@ function screquest(host,port,username,domain,resource,password,route)
 			else	
 			{
 				cmean+=dt;
-				totalrecieved++;
+				totalreceived++;
 			}
 			cmax=Math.max(cmax,dt);
 			if(opmode==1)	//bombarding mode
@@ -417,27 +426,29 @@ var	arr=[],				//array of client instances
 	totalclients=0,		//number of Established client instances at any time
 	cmean=0,				//avg Response Time for successfull messages 
 	cmax=0,				//max response time
-	totalrecieved=0,		//total number of successfull messages recieved
+	totalreceived=0,		//total number of successfull messages received
 	totalsent=0,			//total number of messages sent
 	totalerrors=0,			//number of unsuccessfull messages
 	timeout=7000,			//threshhold value of successfull response time in milliseconds
 	opmode=1,				//mode of operation of application
-	ninterval=5;			//while operating in normal mode, interval between two consecutive messages from a client
-	
+	ninterval=5;			//while operating in normal mode, interval between two consecutive messages sent from a client
+
+//function to print statistics
 function pstatus()
 {
 	autil.logit("DATA","total:"+total+" nEstablished:"+totalclients);
-	if(totalrecieved)
-		autil.logit("DATA","meanTL:"+Math.round(cmean/totalrecieved)+" maxTL:"+cmax);
+	if(totalreceived)
+		autil.logit("DATA","meanTL:"+Math.round(cmean/totalreceived)+" maxTL:"+cmax);
 	else
-		autil.logit("DATA","No message recieved");
+		autil.logit("DATA","No message received");
 	if(totalsent)
-		autil.logit("DATA","sentperclient:"+Math.round(totalsent/totalclients)+" recievedperclient:"+Math.round(totalrecieved/totalclients)+" Error%:"+((totalerrors/totalsent)*100).toFixed(2)+"%");
+		autil.logit("DATA","sentperclient:"+Math.round(totalsent/totalclients)+" receivedperclient:"+Math.round(totalreceived/totalclients)+" Error%:"+((totalerrors/totalsent)*100).toFixed(2)+"%");
 	else
 		autil.logit("DATA","No message sent");
-	total=0;	
+	//reinitialising every thing again	
+	total=0;
 	totalsent=0;
-	totalrecieved=0;
+	totalreceived=0;
 	totalerrors=0;
 	cmean=0;
 	cmax=0;
@@ -457,8 +468,8 @@ function start_test(options) {
 	setTimeout(function(){
 		process.exit();
 	},options.terminate*60*1000);					//Terminate programme after 20 minutes by default
-
 }
+
 function main() {
 	var opts = require('tav').set({
 		endpoint: {
@@ -478,12 +489,12 @@ function main() {
 			value: "INFO"
 		},
 		start: {
-			note: 'who are the clients u want to create(default: 1)',
+			note: 'which clients u want to create(default: 1)',
 			value: 1
 		},
 		timeout: {
 			note: 'Upper limit of response time in seconds(default: 7)',
-			value: 7
+			value: 10
 		},
 		mode: {
 			note: 'mode in which clients operate (1.Bombarding 2.Normal mode)(default: 1)',

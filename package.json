@@ -1,0 +1,21 @@
+{ "name": "node-bosh-stress-tool"
+,"version": "0.0.1"
+,"main": "./boshclient.js"
+,"description": "BOSH client to stress test a bosh server"
+,"author": "Anoop Chaurasiya"
+,"dependencies": {"node-expat": ">=1.2.0"
+		 ,"ltx": ">= 0.0.4"
+		 ,"tav": ">= 0.1.0"
+		 }
+,"repositories": [{"type": "git"
+		  ,"path": "https://github.com/anoopc/node-bosh-stress-tool"
+		  }]
+,"homepage": "https://github.com/anoopc/node-bosh-stress-tool"
+,"bugs": "https://github.com/anoopc/node-bosh-stress-tool/issues"
+,"maintainers": [{"name": "Anoop Chaurasiya"
+		 ,"email": "anoopchaurasiya1@gmail.com"
+		 }]
+,"engines": {
+	    "node": ">=0.4.0"
+	    }
+}
