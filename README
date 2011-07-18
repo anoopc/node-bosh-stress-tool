@@ -29,7 +29,7 @@ Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
 
 
 [B] 	Loglevels(in order):
-		FATAL:	not used
+		FATAL:	displays nothing
 		ERROR:	displays error messages
 		DATA:	displays statistics
 		INFO:	informs about important events
@@ -99,4 +99,4 @@ Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
 		required while using the program in the bombarding mode.
 
 
-*******************************************HAPPY CODING and HAPPY NODING****************************************************
+*****************************HAPPY CODING and HAPPY NODING*******************************
