@@ -1,7 +1,3 @@
 //some points that may be thought over
-1.when server violating the rule,instead of keep sending empty bodies and
-  waiting for expected behaviour forever,(after a fixed number of waiting,
-  we shd terminate the session) [never observed such behaviour]
-2.keeping session establishment seperate i.e. analysis starts after all 
-  the sessions are established[not a big issue i suppose,so not doing that 
-  for the timebeing].
+1. refactoring
+2. Correctness Tests

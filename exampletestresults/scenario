@@ -1,0 +1,3 @@
+xmpp server and bosh proxy on the same machine having two processors, each [Intel(R) Core(TM)2 Duo CPU  P8600  @ 2.40GHz] assigned one processor each.
+this load-test program runs on another machine having similar specification on same local network, Ethernet(100 Mbps).
+

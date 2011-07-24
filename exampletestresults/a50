@@ -1,0 +1,280 @@
+// no. of clients = 100(simultaneously from two machines 50,50)
+
+//*****************One Machine********************
+
+DATA: Total_Responses_Received: 53781
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 56
+DATA: Max_Time_Lag: 174
+DATA: Total_Messages_Sent_Per_Client: 1071
+DATA: Total_Messages_Received_Per_Client: 1070
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52708
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 180
+DATA: Total_Messages_Sent_Per_Client: 1054
+DATA: Total_Messages_Received_Per_Client: 1054
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52899
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 195
+DATA: Total_Messages_Sent_Per_Client: 1058
+DATA: Total_Messages_Received_Per_Client: 1058
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52842
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 180
+DATA: Total_Messages_Sent_Per_Client: 1057
+DATA: Total_Messages_Received_Per_Client: 1057
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 53131
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 56
+DATA: Max_Time_Lag: 254
+DATA: Total_Messages_Sent_Per_Client: 1063
+DATA: Total_Messages_Received_Per_Client: 1063
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52764
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 313
+DATA: Total_Messages_Sent_Per_Client: 1055
+DATA: Total_Messages_Received_Per_Client: 1055
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 53010
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 56
+DATA: Max_Time_Lag: 170
+DATA: Total_Messages_Sent_Per_Client: 1060
+DATA: Total_Messages_Received_Per_Client: 1060
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52871
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 285
+DATA: Total_Messages_Sent_Per_Client: 1057
+DATA: Total_Messages_Received_Per_Client: 1057
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52160
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 940
+DATA: Total_Messages_Sent_Per_Client: 1043
+DATA: Total_Messages_Received_Per_Client: 1043
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52597
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 171
+DATA: Total_Messages_Sent_Per_Client: 1052
+DATA: Total_Messages_Received_Per_Client: 1052
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52455
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 312
+DATA: Total_Messages_Sent_Per_Client: 1049
+DATA: Total_Messages_Received_Per_Client: 1049
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52602
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 198
+DATA: Total_Messages_Sent_Per_Client: 1052
+DATA: Total_Messages_Received_Per_Client: 1052
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52177
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 262
+DATA: Total_Messages_Sent_Per_Client: 1044
+DATA: Total_Messages_Received_Per_Client: 1044
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52458
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 294
+DATA: Total_Messages_Sent_Per_Client: 1049
+DATA: Total_Messages_Received_Per_Client: 1049
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 52725
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 57
+DATA: Max_Time_Lag: 278
+DATA: Total_Messages_Sent_Per_Client: 1055
+DATA: Total_Messages_Received_Per_Client: 1055
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 98533
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 30
+DATA: Max_Time_Lag: 216
+DATA: Total_Messages_Sent_Per_Client: 1971
+DATA: Total_Messages_Received_Per_Client: 1971
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 98370
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 30
+DATA: Max_Time_Lag: 249
+DATA: Total_Messages_Sent_Per_Client: 1967
+DATA: Total_Messages_Received_Per_Client: 1967
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 88062
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 34
+DATA: Max_Time_Lag: 152
+DATA: Total_Messages_Sent_Per_Client: 1761
+DATA: Total_Messages_Received_Per_Client: 1761
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 96576
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 31
+DATA: Max_Time_Lag: 155
+DATA: Total_Messages_Sent_Per_Client: 1932
+DATA: Total_Messages_Received_Per_Client: 1932
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 97092
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 31
+DATA: Max_Time_Lag: 177
+DATA: Total_Messages_Sent_Per_Client: 1942
+DATA: Total_Messages_Received_Per_Client: 1942
+DATA: Error %: 0.00%
+
+//**************************Other machine****************
+
+DATA: Total_Responses_Received: 37536
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 80
+DATA: Max_Time_Lag: 221
+DATA: Total_Messages_Sent_Per_Client: 746
+DATA: Total_Messages_Received_Per_Client: 745
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37782
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 256
+DATA: Total_Messages_Sent_Per_Client: 756
+DATA: Total_Messages_Received_Per_Client: 756
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37691
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 241
+DATA: Total_Messages_Sent_Per_Client: 754
+DATA: Total_Messages_Received_Per_Client: 754
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38065
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 248
+DATA: Total_Messages_Sent_Per_Client: 761
+DATA: Total_Messages_Received_Per_Client: 761
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38001
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 228
+DATA: Total_Messages_Sent_Per_Client: 760
+DATA: Total_Messages_Received_Per_Client: 760
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38071
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 229
+DATA: Total_Messages_Sent_Per_Client: 761
+DATA: Total_Messages_Received_Per_Client: 761
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38008
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 213
+DATA: Total_Messages_Sent_Per_Client: 760
+DATA: Total_Messages_Received_Per_Client: 760
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38033
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 215
+DATA: Total_Messages_Sent_Per_Client: 761
+DATA: Total_Messages_Received_Per_Client: 761
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37948
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 202
+DATA: Total_Messages_Sent_Per_Client: 759
+DATA: Total_Messages_Received_Per_Client: 759
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38178
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 78
+DATA: Max_Time_Lag: 210
+DATA: Total_Messages_Sent_Per_Client: 764
+DATA: Total_Messages_Received_Per_Client: 764
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 38021
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 221
+DATA: Total_Messages_Sent_Per_Client: 760
+DATA: Total_Messages_Received_Per_Client: 760
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37215
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 80
+DATA: Max_Time_Lag: 1267
+DATA: Total_Messages_Sent_Per_Client: 744
+DATA: Total_Messages_Received_Per_Client: 744
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37978
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 198
+DATA: Total_Messages_Sent_Per_Client: 760
+DATA: Total_Messages_Received_Per_Client: 760
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37690
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 245
+DATA: Total_Messages_Sent_Per_Client: 754
+DATA: Total_Messages_Received_Per_Client: 754
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37528
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 80
+DATA: Max_Time_Lag: 225
+DATA: Total_Messages_Sent_Per_Client: 751
+DATA: Total_Messages_Received_Per_Client: 751
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37491
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 80
+DATA: Max_Time_Lag: 331
+DATA: Total_Messages_Sent_Per_Client: 750
+DATA: Total_Messages_Received_Per_Client: 750
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37834
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 267
+DATA: Total_Messages_Sent_Per_Client: 757
+DATA: Total_Messages_Received_Per_Client: 757
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37709
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 79
+DATA: Max_Time_Lag: 236
+DATA: Total_Messages_Sent_Per_Client: 754
+DATA: Total_Messages_Received_Per_Client: 754
+DATA: Error %: 0.00%
+DATA: Total_Responses_Received: 37543
+DATA: Total_Established_Clients: 50
+DATA: Mean_Time_Lag: 80
+DATA: Max_Time_Lag: 234
+DATA: Total_Messages_Sent_Per_Client: 751
+DATA: Total_Messages_Received_Per_Client: 751
+DATA: Error %: 0.00%
