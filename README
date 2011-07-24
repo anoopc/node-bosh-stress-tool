@@ -28,7 +28,7 @@ Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
 	find the average response time a normal user expects.
 
 
-[B] 	LogLevels(in order):
+[B] 	Log Levels(in order):
 		FATAL:	displays nothing
 		ERROR:	displays error messages
 		DATA:	displays statistics
@@ -38,14 +38,13 @@ Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
 
 [C]	Statistics interpretation:[each of the following is recorded since 
 	the last statistics printed]
-		total:			total no. of http responses received by the application
-		nEstablished:		total number of established clients
-		meanTL:			mean timelag over all the received messages
-		maxTL:			max timelag over all the received messages
-		sentperclient:		number of messages sent per client on average
-		receivedperclient:	number of messages received per client on average
-		Error%:			percentage of messages received with timelag greater 
-						than a predefined threshold time 
+		Total_Responses_Received:		total no. of http responses received by the application
+		Total_Established_Clients:		total number of established clients
+		Mean_Time_Lag:				mean time lag over all the received messages
+		Max_Time_Lag:				max time lag over all the received messages
+		Total_Messages_Sent_Per_Client:		number of messages sent per client on average
+		Total_Messages_Received_Per_Client:	number of messages received per client on average
+		Error %:				percentage of messages received with time lag > message_timeout
 
 
 [D] Command line options interpretation:
@@ -100,8 +99,4 @@ Project Home Page: https://github.com/anoopc/node-bosh-stress-tool
 		required while using the program in the bombarding mode.
 
 
-<<<<<<< HEAD
 ********************HAPPY CODING and HAPPY NODING******************************
-=======
-********************HAPPY CODING and HAPPY NODING******************************
->>>>>>> 792e8b9207826b015f1977bb74087864c1c7cd39
